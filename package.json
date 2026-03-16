@@ -1,5 +1,8 @@
 {
-  "name": "react-photo-gallery",
+  "name": "@britannica/react-photo-gallery",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "version": "8.0.0",
   "description": "Responsive Justified React Image Gallery Component",
   "main": "dist/react-photo-gallery.umd.js",
