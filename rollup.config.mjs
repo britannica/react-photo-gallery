@@ -1,5 +1,5 @@
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 const name = 'Gallery';
 const path = 'dist/react-photo-gallery';
@@ -10,17 +10,15 @@ const globals = {
   'resize-observer-polyfill': 'ResizeObserver'
 };
 const external = Object.keys(globals);
-const babelOptions = () => {
-	let result = {
-		babelrc: false,
-		presets: [['@babel/preset-env', { modules: false  }], '@babel/preset-react'],
-    plugins: [
-      '@babel/plugin-proposal-class-properties',
-      '@babel/plugin-proposal-object-rest-spread',
-    ],
-	};
-	return result;
-};
+const babelOptions = () => ({
+	babelHelpers: 'bundled',
+	babelrc: false,
+	presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+	plugins: [
+		'@babel/plugin-proposal-class-properties',
+		'@babel/plugin-proposal-object-rest-spread',
+	],
+});
 
 export default [
 	{
@@ -41,6 +39,6 @@ export default [
 			globals: globals,
 		},
 		external: external,
-		plugins: [babel(babelOptions()), resolve()],
+		plugins: [babel(babelOptions()), nodeResolve()],
 	},
 ];
