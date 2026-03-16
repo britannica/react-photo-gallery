@@ -59,6 +59,7 @@
     "lint": "eslint -c ./.eslintrc.js ./src",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "test": "jest",
+    "test-ci": "jest --ci",
     "coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "keywords": [
